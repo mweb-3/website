@@ -108,29 +108,32 @@
                     <td valign="middle" align="center">
                         <p>
                             <a href="#">
-                                <img src="https://i.ibb.co/PxYSbPq/download-3.png" style="border-radius:50%; width: 100px;" class="center" border="0">
+                                <img src="https://i.ibb.co/PxYSbPq/download-3.png"
+                                    style="border-radius:50%; width: 100px;" class="center" border="0">
                             </a>
                             </>
                         <pre style="background-color: black; color: white;"># delta
     
-<!-- Telegram : <a href="https://t.me/@sevenamgs" target="_blank">@sevenamgs</a> <a href="https://t.me/@sevencooks" target="_blank">@sevencooks</a> 
+web3 enthusiast
+Telegram : <a href="https://t.me/@sevenamgs" target="_blank">@sevenamgs</a>
 Twitter  : <a href="https://twitter.com/7Amg" target="_blank">@7Amg</a>
-Discord  : <a href="https://discord.com/users/1138164464198365205" target="_blank">@sevenamgs</a> -->
+Discord  : <a href="https://discord.com/users/1138164464198365205" target="_blank">@sevenamgs</a>
+GitHub   : <a href="https://github.com/mweb-3" target="_blank">@mweb-3</a>
 
 
-<div>
+<!-- <div>
     <div id="player">
-        <a href="https://open.spotify.com/album/0qGdc7fNq9RNIPEzZufa43" target="_blank"><img src="https://i.scdn.co/image/ab67616d0000b27352c75ed37313b889447011ef" style="width: 85px; border-radius: 7px;" id="albumCover"></a>
+        <a href="{{ sootd['url'] }}" target="_blank"><img src="{{ sootd['albumCoverUrl'] }}" style="width: 85px; border-radius: 7px;" id="albumCover"></a>
         <div class="song-details">
-            <p>Laugh Now Cry Later (feat. Lil Durk)</p>
-            <p>Drake</p>
-            <p>Laugh Now Cry Later</p>
+            <p>{{ sootd['title'] }}</p>
+            <p>{{ sootd['artist'] }}</p>
+            <p>{{ sootd['album'] }}</p>
             <audio controls autoplay loop id="audio-player">
                 <source src="https://github.com/ovode1ta/songs/raw/refs/heads/main/Laugh Now Cry Later (feat. Lil Durk).mp3">
             </audio>
         </div>
     </div>
-</div>
+</div> -->
 
       </pre>
                     </td>
@@ -141,11 +144,11 @@ Discord  : <a href="https://discord.com/users/1138164464198365205" target="_blan
 <script>
     const span = document.querySelector("span");
 
-    span.onclick = function() {
+    span.onclick = function () {
         document.execCommand("copy");
     }
 
-    span.addEventListener("copy", function(event) {
+    span.addEventListener("copy", function (event) {
         event.preventDefault();
         if (event.clipboardData) {
             event.clipboardData.setData("text/plain", "48PwBaATGBmexmeEfJJ5sVAY18nYMqACSM46VKyouMwhMEQ7BUFpobhgCcVQsdJkbKai8mfTf7DdoGnL8G8DxUPvE7zFUXx");
@@ -155,4 +158,3 @@ Discord  : <a href="https://discord.com/users/1138164464198365205" target="_blan
 </script>
 
 </html>
-
