@@ -30,6 +30,16 @@
     .pointer {
         cursor: pointer
     }
+
+    a {
+        color: black;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
 </style>
 
 <body>
@@ -43,6 +53,8 @@ cryptocurrency, aviation, finance
 <a href="https://github.com/mweb-3">github</a>
 <a href="https://x.com/7Amg">x</a>
 <a href="https://t.me/@sevenamgs">telegram</a>
+
+<a id="email">7@alo[.]ne</a>
     </pre>
 </div>
     <video id="video" class="pointer" src="/static/f16.webm" autoplay muted loop></video>
@@ -54,10 +66,19 @@ cryptocurrency, aviation, finance
 <script>
     const audio = document.getElementById('audio');
     const btn = document.getElementById('video');
+    const email = document.getElementById('email')
 
     btn.addEventListener('click', () => {
         audio.play();
         btn.classList.remove('pointer');
+    });
+
+    email.addEventListener('click', async () => {
+        await navigator.clipboard.writeText("7@alo.ne");
+        email.textContent = 'copied to clipboard';
+        setTimeout(() => {
+            email.textContent = '7@alo[.]ne';
+        }, 2000); 
     });
 </script>
 </html>
