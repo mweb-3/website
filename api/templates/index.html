@@ -1,5 +1,5 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>delta</title>
     <meta charset="utf-8">
@@ -10,154 +10,54 @@
 </head>
 <style>
     body {
-        background-color: #000;
-        font-family: monospace;
-        color: #FFF;
-        font-weight: bold;
-        font-size: small;
-        margin: 0;
-        height: 100vh;
+        margin: 0
+    }
+    #outer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100dvh;
+    }
+    #video {
+        width: 50vh;
+    }
+    .child {
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    a {
-        color: #FFF;
-        text-decoration: none;
-    }
-
-    a:hover {
-        color: white;
-        text-decoration: underline;
-    }
-
-    p,
-    pre {
-        text-align: left;
-        margin: 0.5em auto;
-        max-width: 600px;
-    }
-
-    .center {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 50%;
-    }
-
-    #player {
-        display: flex;
-        align-items: center;
-
-    }
-
-    .song-details {
-        margin-left: 15px;
-        transform: translateY(9px);
-        line-height: 0.2;
-        font-size: 12.5px;
-    }
-
-    body {
-        background-color: #000;
-        color: #FFF;
-    }
-
-    #audio-player {
-        padding: 0;
-        background: none;
-        margin-top: -10;
-        margin-left: -100;
-    }
-
-    #audio-player::-webkit-media-controls-enclosure {
-        background-color: transparent;
-
-    }
-
-    #audio-player::-webkit-media-controls-timeline {
-        display: block;
-        height: 4px;
-        background-color: #333;
-    }
-
-    #audio-player::-webkit-media-controls-timeline {
-        background-color: transparent;
-        filter: invert(100%);
-    }
-
-    #audio-player::-webkit-media-controls-current-time-display,
-    #audio-player::-webkit-media-controls-time-remaining-display {
-        display: inline;
-        filter: invert(100%);
-        font-family: monospace;
-    }
-
-    #audio-player::-webkit-media-controls-play-button,
-    #audio-player::-webkit-media-controls-volume-slider {
-        filter: invert(100%);
+    .pointer {
+        cursor: pointer
     }
 </style>
 
-<body id="body">
-    <div class="content">
-        <table width="100%" height="100%" border="0">
-            <tbody>
-                <tr>
-                    <td valign="middle" align="center">
-                        <p>
-                            <a href="#">
-                                <img src="https://i.ibb.co/PxYSbPq/download-3.png"
-                                    style="border-radius:50%; width: 100px;" class="center" border="0">
-                            </a>
-                            </>
-                        <pre style="background-color: black; color: white;">
-
+<body>
+<div id="outer">
+<div class="child">
+    <pre>
 # delta
-    
-web3 enthusiast
 
-Telegram : <a href="https://t.me/@sevenamgs" target="_blank">@sevenamgs</a>
-Twitter  : <a href="https://twitter.com/7Amg" target="_blank">@7Amg</a>
-Discord  : <a href="https://discord.com/users/1138164464198365205" target="_blank">@sevenamgs</a>
-GitHub   : <a href="https://github.com/mweb-3" target="_blank">@mweb-3</a>
+cryptocurrency, aviation, finance
 
-
-<!-- <div>
-    <div id="player">
-        <a href="{{ sootd['url'] }}" target="_blank"><img src="{{ sootd['albumCoverUrl'] }}" style="width: 85px; border-radius: 7px;" id="albumCover"></a>
-        <div class="song-details">
-            <p>{{ sootd['title'] }}</p>
-            <p>{{ sootd['artist'] }}</p>
-            <p>{{ sootd['album'] }}</p>
-            <audio controls autoplay loop id="audio-player">
-                <source src="https://github.com/ovode1ta/songs/raw/refs/heads/main/{{ sootd['name'] }}.mp3">
-            </audio>
-        </div>
-    </div>
-</div> -->
-
-      </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+<a href="https://github.com/mweb-3">github</a>
+<a href="https://x.com/7Amg">x</a>
+<a href="https://t.me/@sevenamgs">telegram</a>
+    </pre>
+</div>
+    <video id="video" class="pointer" src="/static/f16.webm" autoplay muted loop></video>
+    <audio id="audio" autoplay>
+        <source src="/static/relax.mp3" type="audio/mpeg">
+    </audio>
+</div>
 </body>
 <script>
-    const span = document.querySelector("span");
+    const audio = document.getElementById('audio');
+    const btn = document.getElementById('video');
 
-    span.onclick = function () {
-        document.execCommand("copy");
-    }
-
-    span.addEventListener("copy", function (event) {
-        event.preventDefault();
-        if (event.clipboardData) {
-            event.clipboardData.setData("text/plain", "48PwBaATGBmexmeEfJJ5sVAY18nYMqACSM46VKyouMwhMEQ7BUFpobhgCcVQsdJkbKai8mfTf7DdoGnL8G8DxUPvE7zFUXx");
-            console.log(event.clipboardData.getData("text"))
-        }
+    btn.addEventListener('click', () => {
+        audio.play();
+        btn.classList.remove('pointer');
     });
 </script>
-
 </html>
