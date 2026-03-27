@@ -3,6 +3,7 @@
 <head>
     <title>delta</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:site_name" content="delta">
     <meta property="twitter:site" content="@7Amg">
     <meta property="og:title" content="delta">
@@ -10,25 +11,41 @@
 </head>
 <style>
     body {
-        margin: 0
+        margin: 0;
+        overflow: hidden;
     }
+
     #outer {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100dvh;
+        gap: 2rem;
+        flex-wrap: wrap;
+        padding: 1rem;
+        box-sizing: border-box;
     }
+
     #video {
-        width: 50vh;
+        width: min(50vh, 45vw);
+        flex-shrink: 0;
     }
+
     .child {
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
+    pre {
+        margin: 0;
+        font-size: clamp(0.75rem, 2.5vw, 1rem);
+        white-space: pre;
+        overflow: visible;
+    }
+
     .pointer {
-        cursor: pointer
+        cursor: pointer;
     }
 
     a {
@@ -40,12 +57,42 @@
         text-decoration: underline;
         cursor: pointer;
     }
+
+    /* Mobile: stack vertically, shrink video */
+    @media (max-width: 600px) {
+        body {
+            overflow: auto;
+        }
+
+        #outer {
+            flex-direction: column;
+            gap: 1.5rem;
+            height: auto;
+            min-height: 100dvh;
+            padding: 2rem 1rem;
+        }
+
+        #video {
+            width: min(80vw, 300px);
+        }
+
+        pre {
+            font-size: clamp(0.7rem, 3.5vw, 0.9rem);
+        }
+    }
+
+    /* Short screens: keep side by side but shrink video */
+    @media (max-height: 500px) {
+        #video {
+            width: min(40vh, 35vw);
+        }
+    }
 </style>
 
 <body>
 <div id="outer">
-<div class="child">
-    <pre>
+    <div class="child">
+        <pre>
 # delta
 
 cryptocurrency, aviation, finance
@@ -55,9 +102,9 @@ cryptocurrency, aviation, finance
 <a href="https://t.me/@sevenamgs">telegram</a>
 
 <a id="email">7@alo[.]ne</a>
-    </pre>
-</div>
-    <video id="video" class="pointer" src="/static/f16.webm" autoplay muted loop></video>
+        </pre>
+    </div>
+    <video id="video" class="pointer" src="/static/f16.webm" autoplay muted loop playsinline></video>
     <audio id="audio" autoplay>
         <source src="/static/relax.mp3" type="audio/mpeg">
     </audio>
@@ -66,7 +113,7 @@ cryptocurrency, aviation, finance
 <script>
     const audio = document.getElementById('audio');
     const btn = document.getElementById('video');
-    const email = document.getElementById('email')
+    const email = document.getElementById('email');
 
     btn.addEventListener('click', () => {
         audio.play();
@@ -78,7 +125,7 @@ cryptocurrency, aviation, finance
         email.textContent = 'copied to clipboard';
         setTimeout(() => {
             email.textContent = '7@alo[.]ne';
-        }, 2000); 
+        }, 2000);
     });
 </script>
 </html>
